@@ -11,40 +11,32 @@
 |
 */
 
+use Foobooks\Http\Controllers\BookController;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/books', function(){
-    return 'here be all the books';
-});
+Route::get('/books', 'BookController@getIndex');
 
-Route::get('/books/{category}', function($category){
-    return "here be all the books in the <b>$category</b> category.";
-});
+// Route::get('/books/{category}', function($category){
+//     return "here be all the books in the <b>$category</b> category.";
+// });
 
-Route::get('/new', function() {
-    $view  = '<form method="POST">';
-    $view .= csrf_field(); # This will be explained more later
-    $view .= 'Title: <input type="text" name="title">';
-    $view .= '<input type="submit">';
-    $view .= '</form>';
-    return $view;
-});
+Route::get('/books/create', 'BookController@getCreate');
+Route::post('/books/create', 'BookController@postCreate');
 
-Route::post('/new', function() {
-    $input =  Input::all();
-    print_r($input);
-});
+// question mark make argument optional
+Route::get('/books/show/{title?}', 'BookController@getShow');
 
 Route::get('/practice', function() {
     $data = Array('foo' => 'bar');
-   Debugbar::info($data);
-   Debugbar::error('Error!');
-   Debugbar::warning('Watch out…');
-   Debugbar::addMessage('Another message', 'mylabel');
+    Debugbar::info($data);
+    Debugbar::error('Error!');
+    Debugbar::warning('Watch out…');
+    Debugbar::addMessage('Another message', 'mylabel');
 
-   return 'Practice';
+    return 'Practice';
 });
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');

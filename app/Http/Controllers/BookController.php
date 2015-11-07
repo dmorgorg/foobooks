@@ -9,39 +9,45 @@ use Foobooks\Http\Controllers\Controller;
 
 class BookController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function getIndex()
-    {
-        return 'List all the books';
+    public function __contruct(){
+        // do any initialization here
     }
 
     /**
-     *
-     * Responds to requests to GET /books/show/{id}
-     *
-     */
-    public function getShow($id)
+    * Responds to requests to GET /books
+    */
+    public function getIndex()
     {
-        return 'Show book: '.$id;
+        return 'List all the books (from controller)';
+    }
+
+    /**
+    * Responds to requests to GET /books/show/{id}
+    */
+    // null allows function call without $title argument
+    public function getShow($title = null)
+    {
+        return view('books.show')->with('title', $title);
     }
 
     /**
     * Responds to requests to GET /books/create
     */
-   public function getCreate() {
-       return 'Form to create a new book';
-   }
+    public function getCreate() {
+        $view  = '<form method="POST">';
+        $view .= csrf_field(); # This will be explained more later
+        $view .= 'Title (from controller): <input type="text" name="title">';
+        $view .= '<input type="submit">';
+        $view .= '</form>';
+        return $view;
+    }
 
-   /**
+    /**
     * Responds to requests to POST /books/create
     */
-   public function postCreate() {
-       return 'Process adding new book';
-   }
+    public function postCreate() {
+        return 'Process adding new book (from controller)';
+    }
 
 
 }
