@@ -8,7 +8,8 @@
 
 5. Create a repository at Github.com. SSH URL `git@github.com:dmorgorg/foobooks`
 
-6. ```
+6. Need text here to show list number?
+```
 $ git init
 $ git remote add origin git@github.com:dmorgorg/foobooks.git
 $ git status
