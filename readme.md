@@ -17,8 +17,16 @@ $ git commit -m "First commit"
 $ git push origin master
 ```
 
-7. Tell the local Apache to use the virtual hosts file:<br>
- From the XAMPP Control Panel, click on 'Config' and select the `httpd.conf` file. (Or use the `C:\xampp\apache\conf\httpd.conf` file.) Ensure that the line `Include conf/extra/httpd-xampp.conf` is not commented out. Open `C:\xampp\apache\conf\extra\httpd-vhosts.conf`and add the following
+7. Tell the local Apache to use the virtual hosts file:
+
+ From the XAMPP Control Panel, click on 'Config' and select the `httpd.conf` file.
+
+ (Or use the `C:\xampp\apache\conf\httpd.conf` file.)
+
+ Ensure that the line `Include conf/extra/httpd-xampp.conf` is not commented out.
+
+ Open `C:\xampp\apache\conf\extra\httpd-vhosts.conf`and add the following
+
 ```
 <VirtualHost *:80>
     ServerName foobooks.loc
