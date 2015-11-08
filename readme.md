@@ -27,7 +27,6 @@ $ git push origin master
  Ensure that the line `Include conf/extra/httpd-xampp.conf` is not commented out.
 
  Open `C:\xampp\apache\conf\extra\httpd-vhosts.conf`and add the following
-
  ```
 <VirtualHost *:80>
 	ServerName foobooks.loc
@@ -38,8 +37,7 @@ $ git push origin master
 	</Directory>
 </VirtualHost>
  ```
-
-	Restart the XAMPP server.
+Restart the XAMPP server.
 
 8.  Now, edit the Windows `hosts` file to map the url `http://foobooks.loc` to localhost:
 Use `$ elevate nano C:\Windows\System32\drivers\etc\host` to add `127.0.0.1 foobooks.loc` entry at the bottom of the file.
