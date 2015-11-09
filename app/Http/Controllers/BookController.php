@@ -34,19 +34,20 @@ class BookController extends Controller
     * Responds to requests to GET /books/create
     */
     public function getCreate() {
-        $view  = '<form method="POST">';
-        $view .= csrf_field(); # This will be explained more later
-        $view .= 'Title (from controller): <input type="text" name="title">';
-        $view .= '<input type="submit">';
-        $view .= '</form>';
-        return $view;
+        // $view  = '<form method="POST">';
+        // $view .= csrf_field(); # This will be explained more later
+        // $view .= 'Title (from controller): <input type="text" name="title">';
+        // $view .= '<input type="submit">';
+        // $view .= '</form>';
+        // return $view;
+        return view('books.create');
     }
 
     /**
     * Responds to requests to POST /books/create
     */
     public function postCreate() {
-        return 'Process adding new book (from controller)';
+        return 'Process adding new book'.$_POST['title'];
     }
 
 
