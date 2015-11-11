@@ -56,8 +56,8 @@ $ sudo service apache2 restart
 13. Clone the project from github
 ```
 $ cd /var/www/html
-$ git clone git@github.com:dmorgorg/p3.git
-$ cd p3
+$ git clone git@github.com:dmorgorg/foobooks.git
+$ cd foobooks
 ```
 14. Build `vendor/` directory. (Note: vendors are managed by composer, not by version control)<br>
 `$ composer install --prefer-dist`.<br>

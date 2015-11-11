@@ -79,7 +79,9 @@ $ sudo chown -R www-data bootstrap/cache
 16. There is a `.env` file locally but not in the project directory on DO (it's in the `.gitignore` file because we don't want to use local values in the production environment.). Copy the contents of the local `.env`file, changing <br>
 `APP_ENV=local` to `APP_ENV=production` and `APP_DEBUG=true` to `APP_DEBUG=false` into a new `.env` file on the DO server. (If it's more convenient to copy from an existing `.env` file already on DO, remember to copy over the APP_KEY that relates to this project from the local file.)
 
-17. Configure a new subdomain on `namecheap.com`, or wherever, and set up a VirtualHost record for this in the file `000-default.conf`, in the `/etc/apache2/sites-enabled/` directory. Add a new block:
+17. Configure a new subdomain on `namecheap.com`, or wherever.
+
+18. Set up a VirtualHost record for this in the file `000-default.conf`, in the `/etc/apache2/sites-enabled/` directory: `sudo nano 000-default.conf`. Add a new block:
 ```
 <VirtualHost *:80>
 	 ServerName foobooks.trolloff.com
@@ -90,7 +92,8 @@ $ sudo chown -R www-data bootstrap/cache
 	</Directory>
 </VirtualHost>
 ```
+18. Restart the server: `$ sudo server apache2 restart`
 
-18. Check that `http://foobooks.trolloff.com` brings up the Laravel welcome page.
+19. Check that `http://foobooks.trolloff.com` brings up the Laravel welcome page.
 
-19. Build some routes. Open the routes file: `app\Http\routes.php`
+20. Build some routes. Open the routes file: `app\Http\routes.php`

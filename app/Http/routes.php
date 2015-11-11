@@ -42,15 +42,11 @@ Route::get('/practice', function() {
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 Route::get('/debug', function() {
-
     echo '<pre>';
-
     echo '<h1>Environment</h1>';
     echo App::environment().'</h1>';
-
     echo '<h1>Debugging?</h1>';
-    if(config('app.debug')) echo "Yes"; else echo "No";
-
+    if(config('app.debug')) echo "Yes, certainly"; else echo "No thanks";
     echo '<h1>Database Config</h1>';
     /*
     The following line will output your MySQL credentials.
@@ -60,7 +56,6 @@ Route::get('/debug', function() {
     running on your live server, making your credentials public.
     */
     //print_r(config('database.connections.mysql'));
-
     echo '<h1>Test Database Connection</h1>';
     try {
         $results = DB::select('SHOW DATABASES;');
@@ -71,7 +66,5 @@ Route::get('/debug', function() {
     catch (Exception $e) {
         echo '<strong style="background-color:crimson; padding:5px;">Caught exception: ', $e->getMessage(), "</strong>\n";
     }
-
     echo '</pre>';
-
 });
